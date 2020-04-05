@@ -1,5 +1,5 @@
 {% set name = "credstash" %}
-{% set version = "1.16.2" %}
+{% set version = "1.17.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 391d8638606076fedd0b48019cb7672df1ef7839ed1f8d3ee855b3549b396fd0
+  sha256: 81c40b0bbfeaa4d715d9405644fc7fdf020b9835f5bf45e76aa13e98a0091f4b
 
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
   entry_points:
     - credstash = credstash:main
 
@@ -20,7 +20,7 @@ requirements:
   host:
     - python
     - pip
-    - nose >=1.3.6
+    - pytest >=5.4.1
   run:
     - python
     - cryptography >=2.1
@@ -36,10 +36,10 @@ test:
 
 about:
   home: http://github.com/fugue/credstash
-  license: Apache 2.0
+  license: Apache-2.0
   license_family: Apache
   license_file: LICENSE
-  summary: 'A very simple AWS based credential management and distribution system'
+  summary: A very simple AWS based credential management and distribution system
 
   description: |
     CredStash is a very simple, easy to use credential management
