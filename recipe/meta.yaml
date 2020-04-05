@@ -1,5 +1,5 @@
 {% set name = "credstash" %}
-{% set version = "1.16.1" %}
+{% set version = "1.16.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 6510c9a69c7e56975fb3976109f7875eda525ebe23e357079c1774387edc3c05
+  sha256: 391d8638606076fedd0b48019cb7672df1ef7839ed1f8d3ee855b3549b396fd0
 
 build:
   noarch: python
