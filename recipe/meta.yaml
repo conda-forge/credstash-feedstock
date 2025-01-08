@@ -6,23 +6,23 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 6c04e8734ef556ab459018da142dd0b244093ef176b3be5583e582e9a797a120
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   entry_points:
     - credstash = credstash:main
 
 requirements:
   host:
-    - python
+    - python {{ python_min }}
     - pip
     - pytest >=5.4.1
   run:
-    - python
+    - python >={{ python_min }}
     - cryptography >=2.1
     - boto3 >=1.1.1
   run_constrained:
@@ -31,6 +31,7 @@ requirements:
 test:
   requires:
     - pip
+    - python {{ python_min }}
   imports:
     - credstash
   commands:
